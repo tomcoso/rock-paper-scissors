@@ -1,6 +1,25 @@
 # rock-paper-scissors
 Rock Paper Scissors project from The Odin Project
 
+
+I followed problem solving standards for the first time, below is the notes I took before I started coding, there is a planing phase and some pseudocode to divide into subproblems (raw view preferable).
+
+Along the way I found out better ways of getting the same outcome, that had less potential problems.
+
+What I learned from this project:
+
+-Pick a random value from an array
+
+-Use the switch statement with multiple conditions per case
+
+-Use for loops
+
+-Use a main function to exit the script if needed
+
+-Manage variables across different stacks
+
+
+
 1- create rock paper and scissors variables and associate them with number 1-3
 2- Create a function that generates a random value between 1-3
 3- create a function that compares a computer value versus player's value
