@@ -7,11 +7,11 @@ I followed problem solving standards for the first time, below is the notes I to
 Along the way I found out better ways of getting the same outcome, that had less potential problems.
 
 What I learned from this project:
--Pick a random value from an array
--Use the switch statement with multiple conditions per case
--Use for loops
--Use a main function to exit the script if needed
--Manage variables across different stacks
+- Pick a random value from an array
+- Use the switch statement with multiple conditions per case
+- Use for loops
+- Use a main function to exit the script if needed
+- Manage variables across different stacks
 
 
 
