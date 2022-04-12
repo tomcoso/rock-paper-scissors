@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./game.js"></script>
+    <title>Rock Paper Scissors</title>
+    <script src="./game.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <p style="font-size: 90px; text-align: center;">Play on the Console!!</p>
+    <div id="header">Fight me human!</div>
+
+    <div class="container">
+        <div class="score" id="playerscore">0</div>
+        <div id="scoretext">Choose to start</div>
+        <div class="score" id="computerscore">0</div>
+    </div>
+
+    <div class="container">
+        <div class="selectiontext">Player chose <span id="player">
+                -</span></div>
+        <div class="selectiontext">Computer chose <span id="computer">
+                -</span></div>
+    </div>
+
+    <div id="selection" class="container">
+        <button id="rock" class="playerselection">ROCK</button>
+        <button id="paper" class="playerselection">PAPER</button>
+        <button id="scissors" class="playerselection">SCISSORS</button>
+    </div>
+
+    <div id="footer">
+        <button type="button">Restart!</button>
+    </div>
 </body>
 </html>

@@ -13,28 +13,26 @@ function runGame(val) {
     computerValue = getValue();
     switch (true) {
         case val == computerValue:
-            outcome = `You both picked ${userValue.toUpperCase()}\nIt's a tie! Both get a point!`;
-            userScore += 1;
-            computerScore += 1;
+            outcome = 'Tie!';
             break;
         case val == 'rock' && computerValue == 'scissors':
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser wins this round!\nRock beats Scissors.`;
+            outcome = 'Player Wins';
             userScore += 1;
             break;
         case val == 'paper' && computerValue == 'rock':
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser wins this round!\nPaper beats Rock.`;
+            outcome = 'Player Wins';
             userScore += 1;
             break;
         case val == 'scissors' && computerValue == 'paper':
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser wins this round!\nScissors beat Paper.`;
+            outcome = 'Player Wins';
             userScore += 1;
             break;
         default : 
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser loses this round!\n${computerValue.toUpperCase()} beats ${userValue.toUpperCase()}.`;
+            outcome = 'Computer Wins';
             computerScore += 1;
             break;
     }
-    return outcome;
+    scoretext.innerText = outcome;
 }
 
 function main() {
@@ -55,4 +53,19 @@ function main() {
         console.log('Bad luck! Computer wins this time!')
     } else {console.log("It's a tie! What a day!")}
 }
-main()
+//main()
+
+const scoretext = document.querySelector('#scoretext');
+const htmlPlayerScore = document.querySelector('#playerscore');
+const htmlComputerScore = document.querySelector('#computerscore');
+const buttons = document.querySelectorAll('.playerselection');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        runGame(button.id);
+        htmlPlayerScore.innerText = userScore;
+        htmlComputerScore.innerText = computerScore;
+    })
+})
+
+
