@@ -4,55 +4,74 @@ let computerValue = null;
 let userScore = 0;
 let computerScore = 0;
 let outcome = null;
+let terminate = null;
 
 function getValue() {
     return values[Math.floor(Math.random()*3)];
 }
 
+// Because removeEventListener wouldn't work with anonymous functions
+function checkWinner() {
+    if (userScore === 5) {
+        scoretext.innerText = 'Game over!'
+        header.innerText = 'Player Wins!'
+        terminate = 1;
+        return;
+    }else if(computerScore === 5) {
+        scoretext.innerText = 'Game over!'
+        header.innerText = 'Computer wins!'
+        terminate = 1;
+        return;
+    }
+}
+
 function runGame(val) {
+    if (terminate) { 
+        return;
+    }
     computerValue = getValue();
     switch (true) {
         case val == computerValue:
-            outcome = `You both picked ${userValue.toUpperCase()}\nIt's a tie! Both get a point!`;
-            userScore += 1;
-            computerScore += 1;
+            outcome = 'Tie!';
             break;
         case val == 'rock' && computerValue == 'scissors':
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser wins this round!\nRock beats Scissors.`;
+            outcome = 'Player Wins';
             userScore += 1;
             break;
         case val == 'paper' && computerValue == 'rock':
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser wins this round!\nPaper beats Rock.`;
+            outcome = 'Player Wins';
             userScore += 1;
             break;
         case val == 'scissors' && computerValue == 'paper':
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser wins this round!\nScissors beat Paper.`;
+            outcome = 'Player Wins';
             userScore += 1;
             break;
         default : 
-            outcome = `You picked ${userValue.toUpperCase()} // Computer picked ${computerValue.toUpperCase()}\nUser loses this round!\n${computerValue.toUpperCase()} beats ${userValue.toUpperCase()}.`;
+            outcome = 'Computer Wins';
             computerScore += 1;
             break;
     }
-    return outcome;
+    scoretext.innerText = outcome;
+    htmlPlayerScore.innerText = userScore;
+    htmlComputerScore.innerText = computerScore;
+    playerSelection.innerText = val.toUpperCase();
+    computerSelection.innerText = computerValue.toUpperCase();
+    checkWinner();
 }
 
-function main() {
-    for (i=0 ; i < 5 ; i++) {
-    userValue = (prompt('Select Rock, Paper, or Scissors to play!')).toLowerCase();
+const scoretext = document.querySelector('#scoretext');
+const htmlPlayerScore = document.querySelector('#playerscore');
+const htmlComputerScore = document.querySelector('#computerscore');
+const buttons = document.querySelectorAll('.playerselection');
+const playerSelection = document.querySelector('#player');
+const computerSelection = document.querySelector('#computer');
+const restartBtn = document.querySelector('#restart');
+const header = document.querySelector('#header');
 
-    if (userValue != 'rock' && userValue != 'paper' && userValue != 'scissors') {
-        console.log('Bad input, start over!');
-        return;
-    }
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        runGame(button.id);
+    })
+})
 
-    console.log(runGame(userValue));
-    console.log(`Scores  U: ${userScore}  //  C: ${computerScore}`)
-    }
-    if (userScore > computerScore) {
-        console.log('User wins the game!')
-    } else if (userScore < computerScore) {
-        console.log('Bad luck! Computer wins this time!')
-    } else {console.log("It's a tie! What a day!")}
-}
-main()
+restartBtn.addEventListener('click', () => {location.reload()});

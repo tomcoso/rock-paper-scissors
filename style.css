@@ -1,0 +1,74 @@
+html {
+    background-color: #3E3E3E;
+    font-family: monospace;
+}
+
+#header {
+    display: flex;
+    padding: 1em;
+    color: coral;
+    font-size: 6vw;
+    font-weight: bold;
+    background-color: #3E3E3E;
+    border: 2px solid coral;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    padding: 1em 3em;
+    border: 2px solid coral;
+    margin: 2em 0;
+    justify-content: space-between;
+}
+
+.score {
+    color: coral;
+    font-size: 4em;
+    padding: 0.5em;
+    display: flex;
+}
+
+#scoretext {
+    font-size: 2em;
+    color: coral;
+    align-self: center;
+    justify-self: center;
+    max-width: 5em;
+    text-align: center;
+    padding: 1em;
+}
+
+.playerselection {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: coral;
+    color: #3E3E3E;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em 0;
+    width: 9em;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: coral;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    color: #3E3E3E;
+    font-weight: bold;
+}
+
+.selectiontext {
+    color: coral;
+    font-size: 1.5em;
+    max-width: 10em;
+    text-align: center;
+}
+.selectiontext span {
+    font-weight: bold;
+}
